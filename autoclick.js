@@ -1,1 +1,23 @@
-eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('8 2=3.d(\'e\');c(8 1=0;1<2.a;++1){5(2[1].7==\'b 9 f\'||2[1].7==\'k l g\'){2[1].j();h}}5(i 3.6("4")!==\'n\'){3.6("4").m()}',24,24,'|index|anchors|document|appointment_newAppointmentForm_captchaText|if|getElementById|innerText|var|are|length|Appointments|for|getElementsByClassName|arrow|available|appointment|break|typeof|click|Book|this|focus|undefined'.split('|'),0,{}))
+function onError(error) {
+    console.log(`Error: ${error}`);
+  }
+  
+  function onGot(item) {
+    var auto_click = true;
+    if (item.auto_click) {
+        var anchors = document.getElementsByClassName('arrow');
+        for (var index = 0; index < anchors.length; ++index) {
+            if(anchors[index].innerText == 'Appointments are available' || anchors[index].innerText == 'Book this appointment') {
+                anchors[index].click();
+                break;
+            }
+        }
+
+        if(typeof document.getElementById("appointment_newAppointmentForm_captchaText") !== 'undefined') {
+            document.getElementById("appointment_newAppointmentForm_captchaText").focus();
+        }
+    }
+  }
+  
+  var getting = browser.storage.local.get("auto_click");
+  getting.then(onGot, onError);
