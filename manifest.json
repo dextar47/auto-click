@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Auto Click",
+  "version": "1.0",
+
+  "description": "Auto clicks the german embassy VISA links",
+
+  "icons": {
+    "48": "icons/click.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.diplo.de/*"],
+      "js": ["autoclick.js"]
+    }
+  ]
+
+}
